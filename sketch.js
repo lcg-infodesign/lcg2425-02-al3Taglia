@@ -1,4 +1,6 @@
 let colors=["#dae0e4", "#7fa3b7","#334550","#4d93bb","#698392"];
+let marginX = 20; // Margine orizzontale
+let marginY = 30; // Margine verticale
 
 function preload() {
   // put preload code here
@@ -6,22 +8,24 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background("#b1c7d4");
   // put setup code here
-  noLoop();
-  
+  //noLoop();
+  frameRate(0.5);
+
 }
 
 
 function draw() {
   // put drawing code here
-  let nColums = floor(windowWidth / 150); //larhezza spazio singolo fiocco
-  let nRows =  floor(windowHeight / 150); //altezza spazio singolo fiocco
+  background("#b1c7d4"); //sfondo qui per rigenerarlo ad ogni frame
+
+  let nColums = floor((windowWidth - marginX) / 150); //larhezza spazio singolo fiocco
+  let nRows =  floor((windowHeight - marginY) / 150); //altezza spazio singolo fiocco
 
   for (let i = 0; i < nColums; i++) {
     for (let j = 0; j < nRows; j++) {
       push();
-      translate(i * 150, j * 150); // Posiziona il fiocco nella griglia
+      translate(i * 150 + marginX, j * 150 + marginY); // Posiziona il fiocco nella griglia
       strokeWeight(random(2,4)); //variazione spessore di TUTTO il fiocco
       let size = random(0.9, 1.1); // variazione dimensione di OGNI fiocco
       scale(size);
