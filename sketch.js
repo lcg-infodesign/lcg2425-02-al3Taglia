@@ -13,11 +13,12 @@ function setup() {
 
 function draw() {
   // put drawing code here
+  strokeWeight(random(1,4)); //variazione spessore di TUTTO il fiocco
   drawFiocco();
 }
 
 
-//---------DISEGNO DI 1! FIOCCO DI NEVE
+//----------------DISEGNO DI 1! FIOCCO DI NEVE------------------------------
 
 function drawRametti() { //disegno i ramettini sopra obliqui del fiocco di neve
   let t1=random(-5,5); //variazione random della traslazione
@@ -33,7 +34,6 @@ function drawRametti() { //disegno i ramettini sopra obliqui del fiocco di neve
     line(10,-45+t2,0,-40+t2);
     pop();
   }
-  
 
 }
 
@@ -48,8 +48,7 @@ function drawRamettiDoppi() {  //disegno i ramettini obliqui del fiocco di neve
 
 function drawRamo() { //disegno del ramo del fiocco di neve
   let color=random(colors);
-  stroke(color);
-  strokeWeight(2);
+  stroke(color);    //variazione colore su OGNI ramo
   line(0,-50,0,50);
   drawRamettiDoppi();
 }
